@@ -109,24 +109,24 @@ function playGame() {
 
 
 document.getElementById("nextRoundButton").addEventListener("click", () => {
-    playGame(deck1);
-    document.getElementById("winner").innerHTML = `Winner: ${winner}!`;
-    document.getElementById("p1hand").innerHTML = `${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}`;
-    // document.getElementById("p1score").innerHTML = `Rank: ${player1Hand[roundIndex].rank}`;
+    document.getElementById("round").innerHTML = `Round ${roundIndex + 1}`;
     document.getElementById("p1score").innerHTML = `Score: ${player1Score}`;
-    document.getElementById("p2hand").innerHTML = `${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`;
-    // document.getElementById("p2score").innerHTML = `Rank: ${player2Hand[roundIndex].rank}`;
     document.getElementById("p2score").innerHTML = `Score: ${player2Score}`;
+    document.getElementById("p1hand").innerHTML = `${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}`;
+    document.getElementById("p2hand").innerHTML = `${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`;
+    playGame(deck1);
+    document.getElementById("winner").innerHTML = `Round ${roundIndex} Winner: ${winner}`;
 })
 
 document.getElementById("startButton").addEventListener("click", () => {
     document.getElementById("welcome").style = "display: none;";
     document.getElementById("game").style = "display: block";
+    document.getElementById("round").innerHTML = `Round ${roundIndex + 1}`;
     document.getElementById("p1score").innerHTML = `Score: ${player1Score}`;
     document.getElementById("p2score").innerHTML = `Score: ${player2Score}`;
     document.getElementById("p1hand").innerHTML = `${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}`;
     document.getElementById("p2hand").innerHTML = `${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`;
     playGame(deck1);
-    document.getElementById("winner").innerHTML = `Winner: ${winner}`;
+    document.getElementById("winner").innerHTML = `Round ${roundIndex} Winner: ${winner}`;
 });
 
