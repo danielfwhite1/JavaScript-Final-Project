@@ -94,20 +94,6 @@ function playGame() {
 
         }
 
-        // if (roundIndex == 25) {
-
-        //     document.getElementById("nextRoundButton").addEventListener("click", () => {
-                
-        //         document.getElementById("game").style = "display: none;";
-        //         document.getElementById("final").style = "display: block;";
-        //         document.getElementById("p1Score").innerHTML = `Score: ${player1Score}`;
-        //         document.getElementById("p2Score").innerHTML = `Score: ${player2Score}`;
-        //         document.getElementById("gameWinner").innerHTML = `${gameWinner} Wins!`;
-        //         document.getElementById("final").style = "display: none;";
-     
-        //     });
-        // }
-
         if (roundIndex == 24) {
 
             document.getElementById("nextRoundButton").addEventListener("click", () => {
@@ -120,7 +106,6 @@ function playGame() {
                 document.getElementById("p2FinalScore").innerHTML = `Score: ${player2Score}`;
                 document.getElementById("p1FinalHand").innerHTML = `${player1Hand[roundIndex - 1].value} of ${player1Hand[roundIndex - 1].suit}`;
                 document.getElementById("p2FinalHand").innerHTML = `${player2Hand[roundIndex - 1].value} of ${player2Hand[roundIndex - 1].suit}`;
-                // playGame(deck1);
                 document.getElementById("finalRoundWinner").innerHTML = `Round ${roundIndex} Winner: ${roundWinner}`;
      
             });
@@ -161,17 +146,6 @@ function playGame() {
 }
 
 document.getElementById("nextRoundButton").addEventListener("click", () => {
-
-    // if (roundIndex == 25) {
-    //     document.getElementById("finalButton").addEventListener("click", () => {
-    //         document.getElementById("game").style = "display: none;";
-    //         document.getElementById("final").style = "display: block;";
-    //         document.getElementById("p1Score").innerHTML = `Score: ${player1Score}`;
-    //         document.getElementById("p2Score").innerHTML = `Score: ${player2Score}`;
-    //         document.getElementById("gameWinner").innerHTML = `${gameWinner} Wins!!!`;
-    //         document.getElementById("finalButton").style = "display: none;";
-    //     })
-    // }
 
     document.getElementById("round").innerHTML = `Round ${roundIndex + 1}`;
     document.getElementById("p1Score").innerHTML = `Score: ${player1Score}`;
