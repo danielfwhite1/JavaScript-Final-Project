@@ -81,12 +81,10 @@ function playGame() {
         if (player1Hand[roundIndex].rank > player2Hand[roundIndex].rank) {         
             console.log("Player 1 Wins!");
             player1Score += 1;       
-            console.log(`Player 1 New Score: ${player1Score}`)
             roundWinner = 'Player 1';
         } else if (player2Hand[roundIndex].rank > player1Hand[roundIndex].rank) {     
             console.log("Player 2 Wins!");
             player2Score += 1;
-            console.log(`Player 2 New Score: ${player2Score}`)
             roundWinner = 'Player 2';
         } else {
             console.log("It's a Tie!");
