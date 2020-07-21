@@ -10,16 +10,37 @@
         <div id="game" style="display: none;">
             <h1>Game of War</h1>
             <h2 id="round"></h2>
-            <h3>Player 1: </h3>
-            <p id="p1hand"></p>
-            <p id="p1score"></p>
+            <h3>Player 1:</h3>
+            <p id="p1Hand"></p>
+            <p id="p1Score"></p>
             <h3>Player 2:</h3>
-            <p id="p2hand"></p>
-            <p id="p2score"></p>
+            <p id="p2Hand"></p>
+            <p id="p2Score"></p>
             <br />
-            <p id="winner"></p>
+            <h4 id="roundWinner"></h4>
             <input id="nextRoundButton" type="button" value="Next Round">
-            <!-- <script src="index.js"></script> -->
+        </div>
+        <div id="finalRound" style="display: none;">
+            <h1>Game of War</h1>
+            <h2 id="lastRound"></h2>
+            <h3>Player 1:</h3>
+            <p id="p1FinalHand"></p>
+            <p id="p1FinalScore"></p>
+            <h3>Player 2:</h3>
+            <p id="p2FinalHand"></p>
+            <p id="p2FinalScore"></p>
+            <br />
+            <h4 id="finalRoundWinner"></h4>
+            <input id="finalButton" type="button" value="See Final Score">
+        </div>
+        <div id="final" style="display: none;">
+            <h1>Game of War</h1>
+            <h2>Final Results:</h2>
+            <p id="p1TotalScore"></p>
+            <p id="p2TotalScore"></p>
+            <h4 id="gameWinner"></h4>
+            <p>GAME OVER</p>
+            <!-- <input id="finalButton" type="button" value="See Final Score"> -->
         </div>
         <script src="index.js"></script>
     </body>
