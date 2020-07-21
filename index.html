@@ -1,29 +1,26 @@
 <html>
     <head> 
-        <style>
-
-        </style>
     </head>
     <body>
         <div id="welcome">
-            <h1>Welcome to Game of War</h1>
+            <h1>Welcome to the Game of War</h1>
             <h3>Click the button to get started.</h3>
             <input id="startButton" type="button" value="Start Game">
         </div>
         <div id="game" style="display: none;">
             <h1>Game of War</h1>
-            <p>Round 1</p>
+            <h2 id="round"></h2>
             <h3>Player 1: </h3>
-            <p id="p1hand"></p><br />
+            <p id="p1hand"></p>
             <p id="p1score"></p>
             <h3>Player 2:</h3>
-            <p id="p2hand"></p><br />
+            <p id="p2hand"></p>
             <p id="p2score"></p>
             <br />
-            <p id="tie"></p>
-            <input type="button" value="Next Round">
-            <script src="index.js"></script>
+            <p id="winner"></p>
+            <input id="nextRoundButton" type="button" value="Next Round">
+            <!-- <script src="index.js"></script> -->
         </div>
-
+        <script src="index.js"></script>
     </body>
 </html>

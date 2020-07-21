@@ -50,77 +50,83 @@ class Deck {
 
 let player1Hand = [];
 let player2Hand = [];
+let roundIndex = 0;
+let player1Score = 0;
+let player2Score = 0;
+let winner = '';
 
 
 const deck1 = new Deck();
 deck1.reset();
 deck1.shuffle();
 
-// for (let i = 0; i < 26; i++) {
-//         player1Hand.push(deck1.deal());
-//         player2Hand.push(deck1.deal());
-// }
+for (let i = 0; i < 26; i++) {
+    player1Hand.push(deck1.deal());
+    player2Hand.push(deck1.deal());
+}
 
 
+function playGame() {
 
-function playGame(deck) {
-
-    for (let i = 0; i < 26; i++) {
-        player1Hand.push(deck.deal());
-        player2Hand.push(deck.deal());
-    }
-
-    let player1Score = 0;
-    let player2Score = 0;
-
-
-    for (i = 0; i < 26; i++) {
-        console.log(`Round ${i + 1}:
+    console.log(`Round ${roundIndex + 1}:
 
     Player 1 Score: ${player1Score}
     Player 2 Score: ${player2Score}
 
-    Player 1: ${player1Hand[i].value} of ${player1Hand[i].suit}
+    Player 1: ${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}
             vs.
-    Player 2: ${player2Hand[i].value} of ${player2Hand[i].suit}`);
+    Player 2: ${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`);
         
-        if (player1Hand[i].rank > player2Hand[i].rank) {
-            document.getElementById("p1hand").innerHTML = `${player1Hand[i].value} of ${player1Hand[i].suit}`;
+        if (player1Hand[roundIndex].rank > player2Hand[roundIndex].rank) {         
             console.log("Player 1 Wins!");
-            player1Score += 1;
-            document.getElementById("p1score").innerHTML = `Score: ${player1Score}`;
+            player1Score += 1;       
             console.log(`Player 1 New Score: ${player1Score}`)
-        } else if (player2Hand[i].rank > player1Hand[i].rank) {
-            document.getElementById("p2hand").innerHTML = `${player2Hand[i].value} of ${player2Hand[i].suit}`;
+            winner = 'Player 1';
+            // document.getElementById("winner").innerHTML = `Player 1 Wins!`;
+        } else if (player2Hand[roundIndex].rank > player1Hand[roundIndex].rank) {     
             console.log("Player 2 Wins!");
             player2Score += 1;
-            document.getElementById("p2score").innerHTML = `Score: ${player2Score}`;
             console.log(`Player 2 New Score: ${player2Score}`)
+            winner = 'Player 2';
+            // document.getElementById("p1score").innerHTML = `Player 2 Wins!`;
         } else {
-            document.getElementById("tie").innerHTML = "It's a tie!";
             console.log("It's a Tie!");
-        }
-    }
-    console.log(`Final Score:
+            // document.getElementById("winner").innerHTML = "It's a tie!";
+            winner = "It's a tie";
 
-    Player 1: ${player1Score}
-    Player 2: ${player2Score}
+        }
+
+    // console.log(`Final Score:
+
+    // Player 1: ${player1Score}
+    // Player 2: ${player2Score}
     
-    GAME OVER`)
+    // GAME OVER`)
+
+    roundIndex++;
 }
+
+
+
+document.getElementById("nextRoundButton").addEventListener("click", () => {
+    playGame(deck1);
+    document.getElementById("winner").innerHTML = `Winner: ${winner}!`;
+    document.getElementById("p1hand").innerHTML = `${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}`;
+    // document.getElementById("p1score").innerHTML = `Rank: ${player1Hand[roundIndex].rank}`;
+    document.getElementById("p1score").innerHTML = `Score: ${player1Score}`;
+    document.getElementById("p2hand").innerHTML = `${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`;
+    // document.getElementById("p2score").innerHTML = `Rank: ${player2Hand[roundIndex].rank}`;
+    document.getElementById("p2score").innerHTML = `Score: ${player2Score}`;
+})
 
 document.getElementById("startButton").addEventListener("click", () => {
     document.getElementById("welcome").style = "display: none;";
     document.getElementById("game").style = "display: block";
+    document.getElementById("p1score").innerHTML = `Score: ${player1Score}`;
+    document.getElementById("p2score").innerHTML = `Score: ${player2Score}`;
+    document.getElementById("p1hand").innerHTML = `${player1Hand[roundIndex].value} of ${player1Hand[roundIndex].suit}`;
+    document.getElementById("p2hand").innerHTML = `${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`;
+    playGame(deck1);
+    document.getElementById("winner").innerHTML = `Winner: ${winner}`;
 });
-
-
-
-//playGame(deck1);
-
-const deck2 = new Deck();
-deck2.reset();
-deck2.shuffle();
-
-playGame(deck2);
 
