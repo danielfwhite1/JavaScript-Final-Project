@@ -78,67 +78,66 @@ function playGame() {
             vs.
     Player 2: ${player2Hand[roundIndex].value} of ${player2Hand[roundIndex].suit}`);
         
-        if (player1Hand[roundIndex].rank > player2Hand[roundIndex].rank) {         
-            console.log("Player 1 Wins!");
-            player1Score += 1;       
-            roundWinner = 'Player 1';
-        } else if (player2Hand[roundIndex].rank > player1Hand[roundIndex].rank) {     
-            console.log("Player 2 Wins!");
-            player2Score += 1;
-            roundWinner = 'Player 2';
+    if (player1Hand[roundIndex].rank > player2Hand[roundIndex].rank) {         
+        console.log("Player 1 Wins!");
+        player1Score += 1;       
+        roundWinner = 'Player 1';
+    } else if (player2Hand[roundIndex].rank > player1Hand[roundIndex].rank) {     
+        console.log("Player 2 Wins!");
+        player2Score += 1;
+        roundWinner = 'Player 2';
+    } else {
+        console.log("It's a Tie!");
+        roundWinner = "It's a tie";
+    }
+
+    if (roundIndex == 24) {
+
+        document.getElementById("nextRoundButton").addEventListener("click", () => {
+                
+            document.getElementById("game").style = "display: none;";
+            document.getElementById("finalRound").style = "display: block;";
+
+            document.getElementById("lastRound").innerHTML = `Round ${roundIndex}`;
+            document.getElementById("p1FinalScore").innerHTML = `Score: ${player1Score}`;
+            document.getElementById("p2FinalScore").innerHTML = `Score: ${player2Score}`;
+            document.getElementById("p1FinalHand").innerHTML = `${player1Hand[roundIndex - 1].value} of ${player1Hand[roundIndex - 1].suit}`;
+            document.getElementById("p2FinalHand").innerHTML = `${player2Hand[roundIndex - 1].value} of ${player2Hand[roundIndex - 1].suit}`;
+            document.getElementById("finalRoundWinner").innerHTML = `Round ${roundIndex} Winner: ${roundWinner}`;
+     
+        });
+    }
+
+    if (roundIndex == 25) {
+
+        if (player1Score > player2Score) {
+            gameWinner = 'Player 1';
+        } else if (player2Score > player1Score) {
+            gameWinner = 'Player 2';
         } else {
-            console.log("It's a Tie!");
-            roundWinner = "It's a tie";
-
+            gameWinner = 'No one';
         }
 
-        if (roundIndex == 24) {
-
-            document.getElementById("nextRoundButton").addEventListener("click", () => {
+        document.getElementById("finalButton").addEventListener("click", () => {
                 
-                document.getElementById("game").style = "display: none;";
-                document.getElementById("finalRound").style = "display: block;";
-
-                document.getElementById("lastRound").innerHTML = `Round ${roundIndex}`;
-                document.getElementById("p1FinalScore").innerHTML = `Score: ${player1Score}`;
-                document.getElementById("p2FinalScore").innerHTML = `Score: ${player2Score}`;
-                document.getElementById("p1FinalHand").innerHTML = `${player1Hand[roundIndex - 1].value} of ${player1Hand[roundIndex - 1].suit}`;
-                document.getElementById("p2FinalHand").innerHTML = `${player2Hand[roundIndex - 1].value} of ${player2Hand[roundIndex - 1].suit}`;
-                document.getElementById("finalRoundWinner").innerHTML = `Round ${roundIndex} Winner: ${roundWinner}`;
+            document.getElementById("game").style = "display: none;";
+            document.getElementById("finalRound").style = "display: none;";
+            document.getElementById("final").style = "display: block;";
+            document.getElementById("p1TotalScore").innerHTML = `Player 1 Score: ${player1Score}`;
+            document.getElementById("p2TotalScore").innerHTML = `Player 2 Score: ${player2Score}`;
+            document.getElementById("gameWinner").innerHTML = `${gameWinner} Wins!`;
      
-            });
-        }
+        });
 
-        if (roundIndex == 25) {
+        console.log(`Final Score:
 
-            if (player1Score > player2Score) {
-                gameWinner = 'Player 1';
-            } else if (player2Score > player1Score) {
-                gameWinner = 'Player 2';
-            } else {
-                gameWinner = 'No one';
-            }
+        Player 1: ${player1Score}
+        Player 2: ${player2Score}
 
-            document.getElementById("finalButton").addEventListener("click", () => {
-                
-                document.getElementById("game").style = "display: none;";
-                document.getElementById("finalRound").style = "display: none;";
-                document.getElementById("final").style = "display: block;";
-                document.getElementById("p1TotalScore").innerHTML = `Player 1 Score: ${player1Score}`;
-                document.getElementById("p2TotalScore").innerHTML = `Player 2 Score: ${player2Score}`;
-                document.getElementById("gameWinner").innerHTML = `${gameWinner} Wins!`;
-     
-            });
-
-            console.log(`Final Score:
-
-            Player 1: ${player1Score}
-            Player 2: ${player2Score}
-
-            ${gameWinner} Wins!
+        ${gameWinner} Wins!
         
-            GAME OVER`);
-        }
+        GAME OVER`);
+    }
 
     roundIndex++;
 }

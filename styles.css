@@ -1,0 +1,38 @@
+body {
+    background-color: tan;
+    background-image: url(https://us.123rf.com/450wm/tupungato/tupungato2001/tupungato200100464/138471788-blackjack-vector-background-casino-vector-texture-cardgame-table-backdrop-.jpg?ver=6);
+}
+
+#welcome {
+    text-align: center;
+    color: black;
+    padding: 10px;
+}
+
+#game {
+    text-align: center;
+    display: none;
+}
+
+#finalRound {
+    text-align: center;
+    display: none;
+}
+
+#final {
+    text-align: center;
+    display: none;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 48px;
+    color: white;
+}
+
+#p1Hand, #p1Score, #p2Hand, #p2Score, #p1FinalScore #p2FinalScore {
+    color: white;
+}
