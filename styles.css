@@ -33,6 +33,6 @@ h1 {
     color: white;
 }
 
-#p1Hand, #p1Score, #p2Hand, #p2Score, #p1FinalScore #p2FinalScore {
+#p1Hand, #p1Score, #p2Hand, #p2Score, #p1TotalScore #p2TotalScore {
     color: white;
 }
